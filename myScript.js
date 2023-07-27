@@ -19,12 +19,15 @@ const divide = function(a, b){
 }
 
 let num1;
-let operator;
+let op;
 let num2;
 
+function operate(a, operator, b) {
+    if (operator === "+") {
+        add(a, b);
+    }
+}
 
 
-console.log(add(2, 4));
-console.log(subtract(2, 4));
-console.log(multiply(2, 4));
-console.log(divide(2, 4));
+
+console.log(operate(2, "+", 4));
