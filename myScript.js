@@ -18,6 +18,12 @@ const divide = function(a, b){
     return (a / b);
 }
 
+let num1;
+let operator;
+let num2;
+
+
+
 console.log(add(2, 4));
 console.log(subtract(2, 4));
 console.log(multiply(2, 4));
