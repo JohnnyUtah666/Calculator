@@ -23,6 +23,7 @@ let op;
 let num2;
 
 let result = 0;
+let displayValue = 0;
 
 function operate(a, operator, b) {
     if (operator === "+") {
