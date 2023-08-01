@@ -51,6 +51,24 @@ body {
     width: 50px;
 }
 
+#operator {
+    color: black;
+    background-color: orange;
+    border-color: antiquewhite;
+}
+
+#clear {
+    color: antiquewhite;
+    background-color: red;
+    border-color: antiquewhite;
+}
+
+#equals {
+    color: black;
+    background-color: greenyellow;
+    border-color: antiquewhite;
+}
+
 .controls {
     padding: 15px;
     display: grid;
