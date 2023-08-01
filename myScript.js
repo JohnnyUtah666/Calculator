@@ -22,12 +22,23 @@ let num1;
 let op;
 let num2;
 
+let result = 0;
+
 function operate(a, operator, b) {
     if (operator === "+") {
-        add(a, b);
+       return (result = add(a, b));
+    }
+    else if (operator === "-"){
+        return (result = subtract(a, b));
+    }
+    else if (operator === "*"){
+        return (result = multiply(a, b));
+    }
+    else if (operator === "/"){
+        return (result = divide(a,b));
     }
 }
 
 
 
-console.log(operate(2, "+", 4));
+console.log(operate(80, "/", 2));
