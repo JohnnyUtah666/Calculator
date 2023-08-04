@@ -25,6 +25,7 @@ let num2;
 let result = 0;
 let displayValue = 0;
 
+
 function operate(a, operator, b) {
     if (operator === "+") {
        return (result = add(a, b));
@@ -40,6 +41,11 @@ function operate(a, operator, b) {
     }
 }
 
+const numButton = document.querySelector("#numButton");
+
+numButton.addEventListener("click", () => {
+
+});
 
 
 console.log(operate(80, "/", 2));
