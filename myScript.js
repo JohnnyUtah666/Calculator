@@ -1,3 +1,8 @@
+let operator = '';
+let previousValue = '';
+let currentValue = '';
+
+
 document.addEventListener("DOMContentLoaded", function(){
     let clear = document.querySelector("#clear");
     let equal = document.querySelector("#equals");
@@ -9,7 +14,17 @@ document.addEventListener("DOMContentLoaded", function(){
     let previousScreen = document.querySelector("#previous");
     let currentScreen = document.querySelector("#current");
 
-});
+    numbers.forEach((number) => number.addEventListener("click", function(e){
+        handleNumber(e.target.textContent)
+        currentScreen.textContent = currentValue;
+    }))
+})
+
+function handleNumber(num){
+    if(currentValue.length <= 7){
+        currentValue += num;
+    }
+}
 
 const add = function(a, b) {
     return (a + b);
@@ -31,9 +46,6 @@ const divide = function(a, b){
     return (a / b);
 }
 
-let num1;
-let op;
-let num2;
 
 let result = 0;
 let displayValue = 0;
@@ -53,9 +65,6 @@ function operate(a, operator, b) {
         return (result = divide(a,b));
     }
 }
-
-const numButton = document.querySelector("#numButton");
-
 
 ;
 
