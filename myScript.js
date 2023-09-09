@@ -1,3 +1,16 @@
+document.addEventListener("DOMContentLoaded", function(){
+    let clear = document.querySelector("#clear");
+    let equal = document.querySelector("#equals");
+    let decimal = document.querySelector("#decimal");
+
+    let numbers = document.querySelectorAll("#numButton");
+    let operators = document.querySelectorAll("#operator");
+
+    let previousScreen = document.querySelector("#previous");
+    let currentScreen = document.querySelector("#current");
+
+});
+
 const add = function(a, b) {
     return (a + b);
 };
@@ -43,9 +56,8 @@ function operate(a, operator, b) {
 
 const numButton = document.querySelector("#numButton");
 
-numButton.addEventListener("click", () => {
 
-});
+;
 
 
 console.log(operate(80, "/", 2));
