@@ -18,9 +18,10 @@ document.addEventListener("DOMContentLoaded", function(){
         handleNumber(e.target.textContent)
         currentScreen.textContent = currentValue;
     }))
+
     operators.forEach((op) => op.addEventListener("click", function(e){
         handleOperator(e.target.textContent)
-        previousScreen.textContent = previousValue + "" + operator;
+        previousScreen.textContent = previousValue + " " + operator;
         currentScreen.textContent = currentValue;
     }))
 
@@ -30,107 +31,64 @@ document.addEventListener("DOMContentLoaded", function(){
         operator = '';
         previousScreen.textContent = currentValue;
         currentScreen.textContent = currentValue;
-
-    }) 
+    })
 
     equal.addEventListener("click", function(){
-        
-        calculate()
-        previousScreen.textContent = '';
-        currentScreen.textContent = previousValue;
-        if(previousValue.length <= 5){
-            currentScreen.textContent = previousValue;
-        } else{
-            currentScreen.textContent = previousValue.slice(0,5) + "...";
+            if(currentValue != '' && previousValue != ''){
+            calculate()
+            previousScreen.textContent = '';
+            if(previousValue.length <= 5){
+                currentScreen.textContent = previousValue;
+            } else{
+                currentScreen.textContent = previousValue.slice(0,5) + "...";
+            }
         }
-        
-    
     })
- 
-    
-    }
 
-    
-
-)
+    decimal.addEventListener("click", function(){
+        addDecimal();
+    })
+})
 
 
 
 function handleNumber(num){
-    if(currentValue.length <= 7){
-        currentValue += num;
+    if(currentValue.length <=5){
+        currentValue +=num
     }
 }
 
 function handleOperator(op){
     operator = op;
-    perviousValue = currentValue;
+    previousValue = currentValue;
     currentValue = '';
 }
 
 function calculate(){
-     previousValue = Number(previousValue);
-     currentValue = Number(currentValue);
+    previousValue = Number(previousValue);
+    currentValue = Number(currentValue);
 
-     if (operator === "+"){
+    if(operator === "+"){
         previousValue += currentValue;
-     } else if(operator === "-"){
+    } else if(operator === "-"){
         previousValue -= currentValue;
-     } else if (operator === "x"){
+    } else if(operator === "x"){
         previousValue *= currentValue;
-     } else{
+    } else{
         previousValue /= currentValue;
-     }
-     previousValue = roundNumber(previousValue);
-     previousValue = previousValue.toString();
-     currentValue = previousValue.toString();
+    }
 
+    previousValue = roundNumber(previousValue);
+    previousValue = previousValue.toString();
+    currentValue = previousValue.toString();
 }
 
 function roundNumber(num){
     return Math.round(num * 1000) / 1000;
 }
 
-
-const add = function(a, b) {
-    return (a + b);
-};
-
-const subtract = function(a, b) {
-    return (a - b);
-};
-
-const multiply = function(...args){
-    let product = 1;
-    for (let i = 0; i < args.length; i++) {
-        product *= args[i];
-    }
-    return product;
-};
-
-const divide = function(a, b){
-    return (a / b);
-}
-
-
-let result = 0;
-let displayValue = 0;
-
-
-function operate(a, operator, b) {
-    if (operator === "+") {
-       return (result = add(a, b));
-    }
-    else if (operator === "-"){
-        return (result = subtract(a, b));
-    }
-    else if (operator === "*"){
-        return (result = multiply(a, b));
-    }
-    else if (operator === "/"){
-        return (result = divide(a,b));
+function addDecimal(){
+    if(!currentValue.includes(".")){
+        currentValue += '.';
     }
 }
-
-;
-
